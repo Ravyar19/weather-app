@@ -10,3 +10,10 @@ body,
   padding: 0;
   margin: 0;
 }
+
+.main {
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh; /* adjust as needed */
+  background-image: url("./assets/pexels-roberto-nickson-2559941.jpg");
+}

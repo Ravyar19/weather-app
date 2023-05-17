@@ -1,19 +1,19 @@
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import CityInputPage from "./pages/CityInputPage";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import DetailsPage from "./pages/DetailsPage";
 
 function App() {
   return (
     <div className="App">
-      <Router>
-        <Switch>
-          <Route path="/" exact>
-            <CityInputPage />
-          </Route>
-          <Route path="/details/:cityName">
-            <CityInputPage />
-          </Route>
-        </Switch>
-      </Router>
+      <QueryClientProvider client={new QueryClient()}>
+        <Router>
+          <Routes>
+            <Route path="/" element={<CityInputPage />} />
+            <Route path="/details/:cityName" element={<DetailsPage />} />
+          </Routes>
+        </Router>
+      </QueryClientProvider>
     </div>
   );
 }
